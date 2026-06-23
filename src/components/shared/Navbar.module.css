@@ -1,0 +1,127 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 88px;
+  z-index: var(--z-navbar);
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+  background-color: transparent;
+}
+
+.scrolled {
+  background-color: rgba(5, 5, 5, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(246, 180, 74, 0.1);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logoText {
+  font-family: var(--font-bebas-neue), sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.navLink {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.desktopCta {
+  display: block;
+}
+
+.mobileCta {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .navLinks {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background-color: rgba(11, 11, 11, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 1px solid rgba(246, 180, 74, 0.1);
+  }
+
+  .navLinks.mobileOpen {
+    right: 0;
+  }
+
+  .desktopCta {
+    display: none;
+  }
+
+  .mobileCta {
+    display: block;
+    margin-top: var(--spacing-md);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .line1Open {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .line2Open {
+    opacity: 0;
+  }
+
+  .line3Open {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}

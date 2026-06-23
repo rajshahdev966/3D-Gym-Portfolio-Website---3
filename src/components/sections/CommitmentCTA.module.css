@@ -1,0 +1,163 @@
+.ctaSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+  background-image: 
+    linear-gradient(180deg, transparent 0%, var(--color-surface) 100%),
+    radial-gradient(circle at center, rgba(246,180,74,0.08) 0%, transparent 60%);
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-xxl) 0;
+}
+
+.content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.content h2 {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 0 0 40px rgba(246,180,74,0.3);
+}
+
+.content p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xxl);
+}
+
+.actionArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.commitmentButton {
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(246,180,74,0.3);
+  border-radius: var(--radius-pill);
+  padding: 24px 64px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 350px;
+}
+
+.commitmentButton::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.commitmentButton.hovered {
+  border-color: var(--color-primary);
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(246,180,74,0.4);
+}
+
+.commitmentButton.hovered::before {
+  transform: scaleX(1);
+}
+
+.buttonTextWrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+}
+
+.defaultText, .hoverText {
+  position: absolute;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  white-space: nowrap;
+}
+
+.defaultText {
+  color: var(--color-text-primary);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.defaultText.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.hoverText {
+  color: var(--color-secondary);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hoverText.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portalPulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 0 0 rgba(246,180,74,0.4);
+  z-index: -1;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(246,180,74,0.4); }
+  70% { box-shadow: 0 0 0 30px rgba(246,180,74,0); }
+  100% { box-shadow: 0 0 0 0 rgba(246,180,74,0); }
+}
+
+.supportingText {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.dot {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .commitmentButton {
+    min-width: 100%;
+    width: 100%;
+    padding: 24px 32px;
+  }
+
+  .supportingText {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .dot {
+    display: none;
+  }
+}

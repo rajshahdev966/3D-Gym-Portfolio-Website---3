@@ -1,0 +1,53 @@
+:root {
+  /* Colors */
+  --color-primary: #F6B44A;
+  --color-primary-light: #FFD67A;
+  --color-primary-glow: #FFCA63;
+  --color-secondary: #050505;
+  --color-tertiary: #0F0F0F;
+  --color-neutral: #161616;
+
+  --color-background: #050505;
+  --color-surface: #0B0B0B;
+  --color-surface-elevated: #121212;
+
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #A1A1AA;
+  --color-text-muted: #71717A;
+
+  --color-border: rgba(246,180,74,0.15);
+  --color-border-active: rgba(246,180,74,0.4);
+
+  --color-accent: #F6B44A;
+  --color-success: #D4AF37;
+
+  /* Typography variables setup in layout via next/font */
+  /* --font-bebas-neue */
+  /* --font-inter */
+
+  /* Rounded */
+  --radius-xs: 12px;
+  --radius-sm: 18px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-xl: 40px;
+  --radius-pill: 9999px;
+
+  /* Spacing */
+  --spacing-base: 8px;
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 64px;
+  --spacing-xxl: 96px;
+  --spacing-section: 140px;
+  --spacing-card: 32px;
+
+  /* Layout */
+  --container-width: 1440px;
+  
+  /* Z-index */
+  --z-navbar: 100;
+  --z-modal: 1000;
+}

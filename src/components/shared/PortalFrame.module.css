@@ -1,0 +1,44 @@
+.portalFrame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  background: linear-gradient(135deg, #FFD67A, #F6B44A, #A86C18);
+  box-shadow: 0 0 40px rgba(246,180,74,0.3), 0 0 120px rgba(246,180,74,0.15);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease-out;
+}
+
+.portalFrame:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 60px rgba(246,180,74,0.5), 0 0 150px rgba(246,180,74,0.3);
+}
+
+.portalContent {
+  position: relative;
+  border-radius: calc(var(--radius-lg) - 4px);
+  background-color: var(--color-background);
+  overflow: hidden;
+  z-index: 2;
+  height: 100%;
+}
+
+.particlesContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particleOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at center, rgba(246,180,74,0.15) 0%, transparent 70%);
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}

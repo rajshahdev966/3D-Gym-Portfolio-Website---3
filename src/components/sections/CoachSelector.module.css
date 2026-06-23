@@ -1,0 +1,209 @@
+.coachSection {
+  padding: var(--spacing-section) 0;
+  background-color: var(--color-background);
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.header h2 {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.header p {
+  color: var(--color-text-secondary);
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.optionsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.optionButton {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  color: var(--color-text-secondary);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.optionButton:hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-text-primary);
+  transform: translateX(5px);
+}
+
+.activeOption {
+  background: linear-gradient(90deg, rgba(246,180,74,0.1), transparent);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.radioCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.radioInner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.activeOption .radioCircle {
+  border-color: var(--color-primary);
+}
+
+.activeOption .radioInner {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.avatarPanel {
+  display: flex;
+  justify-content: center;
+}
+
+.avatarWrapper {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 3/4;
+}
+
+.avatarContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.avatarContainer.fade {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.avatarImage {
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.infoPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.infoCard.slideFade {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.infoCard h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 40px; /* Overriding default heading-lg slightly for fit */
+}
+
+.infoRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.infoRow:last-of-type {
+  border-bottom: none;
+}
+
+.infoLabel {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.infoValue {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  color: var(--color-text-primary);
+}
+
+.ctaWrapper {
+  margin-top: var(--spacing-md);
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .optionsPanel {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: var(--spacing-sm);
+    scroll-snap-type: x mandatory;
+  }
+
+  .optionButton {
+    min-width: 250px;
+    scroll-snap-align: center;
+  }
+
+  .optionButton:hover {
+    transform: none;
+  }
+
+  .avatarWrapper {
+    max-width: 350px;
+  }
+}
